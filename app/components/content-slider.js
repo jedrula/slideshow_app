@@ -15,7 +15,6 @@ export default Ember.Component.extend(IntervalJob, {
 
   willDestroy() {
     this._super(...arguments);
-    console.log('will destroy')
     this.intervalJob.stop();
   },
 

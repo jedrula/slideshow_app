@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Mixin.create({
   createJob(fn, interval) { //TODO maybe we should somehow include managing of willDestroy Ember.run.cancel(timer) in the mixin
-    let timer = undefined;
+    let timer;
     return {
       run() {
         if (timer) { throw new Error('already running - you can only call run again after you call stop.'); }
@@ -24,7 +24,9 @@ export default Ember.Mixin.create({
       },
       setIntervalTime(newInterval,options) {
         interval = newInterval;
-        options && options.reRun && this.reRun();
+        if(options && options.reRun){
+          this.reRun();
+        }
       },
     }
   }
