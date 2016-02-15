@@ -28,6 +28,6 @@ export default Ember.Mixin.create({
           this.reRun();
         }
       },
-    }
+    };
   }
 });
