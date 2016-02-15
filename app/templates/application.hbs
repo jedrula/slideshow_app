@@ -1,3 +1,32 @@
-<h2 id="title">Welcome to Ember</h2>
+<h2 id="title">Content-slider component demo</h2>
+  <h3>flickr</h3>
+  <div class="form-group form-inline">
+    <label for="text">Search:</label>
+    <input type="text" class="form-control" id="text" value={{text}} oninput={{action "textChanged" value="target.value"}}>
+  </div>
+
+
+  <div class="slideshow-example flickr-slideshow">
+    {{#content-slider items=model.flickr.photos.photo as |photo|}}
+        {{flickr-photo photo=photo}}
+    {{/content-slider}}
+  </div>
+
+  <!--
+  <h3>letters</h3>
+  <div class="slideshow-example">
+    {{#content-slider items=model.letters as |currentview|}}
+      {{currentview}}
+    {{/content-slider}}
+  </div>
+-->
+
+  <h3>slides (colored pngs)</h3>
+  <div class="slideshow-example">
+    {{#content-slider items=model.images as |currentview|}}
+      <img src="{{currentview}}"/>
+    {{/content-slider}}
+  </div>
+
 
 {{outlet}}

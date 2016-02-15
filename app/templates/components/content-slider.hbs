@@ -1,0 +1,32 @@
+<!-- TODO Describe the HTML structure that the slideshow needs and describe why you chose it -->
+<!-- TODO use simillar thing to: http://www.w3schools.com/bootstrap/bootstrap_carousel.asp -->
+{{#if itemsArr}}
+
+  <div class="carousel-inner">
+      <div class="item active">
+        {{yield cur}}
+
+        <form class="form-horizontal form-inline" role="form">
+          <div class="form-group">
+            <label class="control-label">Interval (in seconds):</label>
+            <select class="form-control" onchange={{action "changeInterval" value="target.value"}}>
+                {{#each intervalOptions as |option|}}
+                  <option value={{option}} selected={{eq interval option}}>{{option}}</option>
+                {{/each}}
+            </select>
+          </div>
+        </form>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control {{if isAtStart "edge"}}" title="click to see previous" {{action "prev"}}>
+    <!-- <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> -->
+    {{fa-icon "arrow-left"}}
+  </a>
+  <a class="right carousel-control">
+    <span title="click to see next" class="{{if isAtEnd "edge"}}" {{action "next"}}>{{fa-icon "arrow-right"}}</span>
+  </a>
+{{else}}
+  no items
+{{/if}}

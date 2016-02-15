@@ -16,6 +16,9 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      flickr: {
+        api_key: 'e84701cd3530ad15ba24004ccfe88877',
+      }
     }
   };
 

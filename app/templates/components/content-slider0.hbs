@@ -1,0 +1,23 @@
+<!-- TODO Describe the HTML structure that the slideshow needs and describe why you chose it -->
+<!-- TODO use simillar thing to: http://www.w3schools.com/bootstrap/bootstrap_carousel.asp -->
+{{#if itemsArr}}
+  <div class="col-sm-2">
+    <!-- <button class="form-control btn" type="button" {{action "prev"}}>prev</button> -->
+    <span title="click to see previous" class="{{if isAtStart "edge"}}" {{action "prev"}}>{{fa-icon "arrow-left"}}</span>
+  </div>
+  <div class="col-sm-8 text-center">
+  		<select onchange={{action intervalChanged value="target.value"}}>
+          {{#each intervalOptions as |option|}}
+            <option value={{option}} selected={{eq interval option}}>{{option}}</option>
+          {{/each}}
+      </select>
+      {{yield cur}}
+  </div>
+
+  <div class="col-sm-2">
+      <!-- <button class="form-control btn" type="button" {{action "next"}}>next</button> -->
+      <span title="click to see next" class="{{if isAtEnd "edge"}}" {{action "next"}}>{{fa-icon "arrow-right"}}</span>
+  </div>
+{{else}}
+  no items TODO
+{{/if}}
